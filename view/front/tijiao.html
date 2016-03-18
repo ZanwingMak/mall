@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="ECSHOP v2.7.2" name="Generator">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+
+<title>提交订单</title>
+
+<link href="favicon.ico" rel="shortcut icon">
+<link type="image/gif" href="animated_favicon.gif" rel="icon">
+<link type="text/css" rel="stylesheet" href="./view/front/css/style.css">
+
+</head>
+
+<body>
+<!--引入头部(header)-->
+<?php include('header.php'); ?>
+<div class="blank"></div>
+
+<div class="block">  
+当前位置: <a href=".">首页</a> <code>&gt;</code> 购物流程 <div class="blank"></div>
+  
+                  <form onsubmit="return checkConsignee(this)" id="theForm" name="theForm" method="post" action="flow.php?act=done">
+        <div class="flowBox">
+<h6><span>收货人信息</span></h6>
+<table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd" align="center">
+    
+  <tbody>
+    <tr>
+    <td bgcolor="#ffffff">收货人姓名:</td>
+    <td bgcolor="#ffffff"><input type="text" value="" id="receiver_0" class="inputBg" name="receiver">(必填)</td>
+    <td bgcolor="#ffffff">电子邮件:</td>
+    <td bgcolor="#ffffff"><input type="text" value="<?php echo $_SESSION['email']; ?>" id="email_0" class="inputBg" name="email">(必填)</td>
+  </tr>
+    
+  <tr>
+    <td bgcolor="#ffffff">收货地址:</td>
+    <td bgcolor="#ffffff"><input type="text" value="" id="address_0" class="inputBg" name="address">(必填)</td>
+    <td bgcolor="#ffffff">邮政编码:</td>
+    <td bgcolor="#ffffff"><input type="text" value="" id="zipcode_0" class="inputBg" name="zipcode">(必填)</td>
+  </tr>
+    <tr>
+    <td bgcolor="#ffffff">联系电话:</td>
+    <td bgcolor="#ffffff"><input type="text" value="" id="tel_0" class="inputBg" name="tel">(必填)</td>
+    <td bgcolor="#ffffff">最佳送货时间:</td>
+    <td bgcolor="#ffffff"><input type="text" value="" id="best_time_0" class="inputBg" name="best_time"></td>
+  </tr>
+
+</tbody></table>
+</div> 
+
+        <div class="flowBox">
+        <h6><span>商品列表</span><a class="f6" href="flow.php">修改</a></h6>
+        <table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd" align="center">
+            <tbody><tr>
+              <th bgcolor="#ffffff">商品名称</th>
+              <th bgcolor="#ffffff">库存</th>
+                            <th bgcolor="#ffffff">市场价</th>
+                            <th bgcolor="#ffffff">本店价</th>
+              <th bgcolor="#ffffff">购买数量</th>
+              <th bgcolor="#ffffff">小计</th>
+            </tr>
+            <?php foreach($CarAllGoodsInfo as $key=>$goods_info) { ?>
+                        <tr>
+              <td bgcolor="#ffffff">
+                        <a class="f6" target="_blank" href="goods.php?goods_id=<?php echo $key;?>"><?php if(mb_strlen($goods_info['goods_name'],'utf-8')>25){echo (mb_substr($goods_info['goods_name'],0,25,'utf-8').'...');}else{echo $goods_info['goods_name'];} ?></a>
+                                                  </td>
+              <td bgcolor="#ffffff" align="center"><?php echo $goods_info['goods_number'];?></td>
+                            <td bgcolor="#ffffff" align="center">￥<?php echo $goods_info['market_price'];?>元</td>
+                            <td bgcolor="#ffffff" align="center">￥<?php echo $goods_info['shop_price'];?>元</td>
+              <td bgcolor="#ffffff" align="center"><?php echo $goods_info['num'];?></td>
+              <td bgcolor="#ffffff" align="center">￥<?php echo $goods_info['num'] * $goods_info['shop_price'];?>元</td>
+            </tr>
+             <?php } ?>
+                                 <tr>
+              <td bgcolor="#ffffff" colspan="7">
+                            购物金额合计 ￥<?php echo $totalamount;?>元，比市场价 ￥<?php echo $markettotalamount;?>元 节省了 ￥<?php echo $discount;?>元 (<?php echo $per;?>%)
+              </td>
+            </tr>
+                      </tbody></table>
+      </div>
+      <div class="blank"></div>
+      
+                <div class="flowBox">
+    <h6><span>支付方式</span></h6>
+    <table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd" align="center" id="paymentTable">
+            <tbody><tr>
+              <th width="5%" bgcolor="#ffffff">&nbsp;</th>
+              <th width="20%" bgcolor="#ffffff">名称</th>
+              <th bgcolor="#ffffff">订购描述</th>
+              <th width="15%" bgcolor="#ffffff">手续费</th>
+            </tr>
+                        
+            <tr>
+              <td valign="top" bgcolor="#ffffff"><input type="radio" onclick="selectPayment(this)" iscod="1" value="3" name="payment"></td>
+              <td valign="top" bgcolor="#ffffff"><strong>货到付款</strong></td>
+              <td valign="top" bgcolor="#ffffff">开通城市：中国大陆除新疆、西藏、内蒙古等偏远地区。</td>
+              <td valign="top" bgcolor="#ffffff" align="right"><span id="ECS_CODFEE">￥0.00元</span></td>
+            </tr>
+                        
+            <tr>
+              <td valign="top" bgcolor="#ffffff"><input type="radio" onclick="selectPayment(this)" iscod="0" value="4" name="payment"></td>
+              <td valign="top" bgcolor="#ffffff"><strong>网上支付</strong></td>
+              <td valign="top" bgcolor="#ffffff">通过支付宝或银行卡进行在线支付（前提是银行卡已经开通网上支付功能）。</td>
+              <td valign="top" bgcolor="#ffffff" align="right">￥0.00元</td>
+            </tr>
+                      </tbody></table>
+    </div>
+                 
+
+         
+
+      
+    <div class="blank"></div>
+    <div class="flowBox">
+    <h6><span>费用总计</span></h6>
+          <div id="ECS_ORDERTOTAL">
+<table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#e5e5e5" align="center">
+    <tbody><tr>
+    <td bgcolor="#ffffff" align="right">
+       该订单完成后，您将获得                         <font class="f4_b">￥0.00元</font>的购物卡。
+          </td>
+
+  </tr>
+    <tr>
+    <td bgcolor="#ffffff" align="right">
+      商品总价: <font class="f_orange_bold">￥<?php echo $totalamount; ?>元</font>
+                                              </td>
+  </tr>
+    <tr>
+    <td bgcolor="#ffffff" align="right"> 应付款金额: <font class="f_orange_bold">￥<?php echo $totalamount; ?>元</font>
+  </td>
+  </tr>
+</tbody></table>
+</div>           <div align="center" style="margin:8px auto;">
+            <input type="image" src="./view/front/images/pay.jpg">
+            <input type="hidden" value="done" name="step">
+            </div>
+    </div>
+    </form>
+        
+                
+
+
+
+</div>
+<div class="blank"></div>
+<div style="text-align:center"></div>
+
+</body></html>

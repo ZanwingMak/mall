@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<title><?php if($act = 'submit'){echo '结算';}elseif($act == 'done'){echo '提交订单';}else{echo '购物车';} ?></title>
+
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        var url = '';
+        var goods_ids = '';
+        var nums = '';
+        var keys = '';
+        function changePrice(keys,num,shop_price,few_total_amount){
+            var shop_price_total = 0;
+            var market_price_total = 0;
+            num = document.getElementById(num).value;
+            shop_price = document.getElementById(shop_price).textContent.substring(1,document.getElementById(shop_price).textContent.indexOf("元"));
+            var few_shop_price_total = num*shop_price;
+            document.getElementById(few_total_amount).innerText = '￥'+few_shop_price_total+'元';
+            if (keys.substr(0,1)==',') keys=keys.substr(1);
+            var key = keys.split(',');
+            var count = key.length;
+            for(var i=0;i<count;i++){
+                shop_price_total = shop_price_total + document.getElementById('num_'+key[i]).value * document.getElementById('shop_price_'+key[i]).textContent.substring(1,document.getElementById('shop_price_'+key[i]).textContent.indexOf("元"));
+                market_price_total = market_price_total + document.getElementById('num_'+key[i]).value * document.getElementById('market_price_'+key[i]).textContent.substring(1,document.getElementById('market_price_'+key[i]).textContent.indexOf("元"));
+            }
+            var discount = market_price_total - shop_price_total;
+            var per = ((discount/market_price_total)*100).toFixed(2);
+            document.getElementById('total').innerText=('购物金额合计 ￥'+shop_price_total+'元，比市场价 ￥'+market_price_total+'元 节省了 ￥'+discount+'元 ('+per+'%)');
+        }
+        function changeGoodsNum(keys){
+            if (keys.substr(0,1)==',') keys=keys.substr(1);
+            var key = keys.split(',');
+            var count = key.length;
+            for(var i=0;i<count;i++){
+                goods_ids = goods_ids+','+key[i];
+                nums = nums+','+document.getElementById('num_'+key[i]).value;
+            }
+            if (goods_ids.substr(0,1)==',') goods_ids=goods_ids.substr(1);
+            if (nums.substr(0,1)==',') nums=nums.substr(1);
+            url = 'flow.php?act=submit&goods_ids='+goods_ids+'&nums='+nums;
+            return url;
+        }
+
+    </script>
+</head>
+
+<body>
+<!--引入头部(header)-->
+<?php include('header.php'); ?>
+<div class="blank"></div>
+<div class="block">  
+当前位置: <a href="#">首页</a> <code>&gt;</code> 购物流程 <div class="blank"></div>
+
+  <div style=" border:1px solid #dcdfe5;padding:1px; padding-bottom:8px;" class="flowBox flowBox1">
+   
+        <form action="./images/jiesuan.htm" method="post" name="formCart" id="formCart">
+           <table width="100%" cellspacing="0" cellpadding="5" border="0" bgcolor="#dddddd" align="center">
+            <tbody><tr>
+              <th style="background:#7a7f89; color:#333">商品名称</th>
+                    <th style="background:#7a7f89; color:#333">库存</th>
+                                          <th style="background:#7a7f89; color:#333">市场价</th>
+                            <th style="background:#7a7f89; color:#333">本店价</th>
+              <th style="background:#7a7f89; color:#333">购买数量</th>
+              <th style="background:#7a7f89; color:#333">小计</th>
+              <th style="background:#7a7f89; color:#333">操作</th>
+            </tr>
+            <?php $keys=''; foreach($CarAllGoodsInfo as $key=>$goods_info){ $keys=$keys.','.$key; }  foreach($CarAllGoodsInfo as $key=>$goods_info){    ?>
+            <tr >
+              <td bgcolor="#ffffff" align="center">
+                                                      <a target="_blank" href="goods.php?goods_id=<?php echo $key; ?>"><img border="0" title="<?php echo $goods_info['goods_name'];?>" src="<?php echo $goods_info['thumb_img'];?>"></a><br>
+                    <a class="f6" target="_blank" href="goods.php?goods_id=<?php echo $key; ?>"><?php if(mb_strlen($goods_info['goods_name'],'utf-8')>25){echo (mb_substr($goods_info['goods_name'],0,25,'utf-8').'...');}else{echo $goods_info['goods_name'];} ?></a>
+                                                                                    </td>
+                            <td bgcolor="#ffffff" align="center"><?php echo $goods_info['goods_number'];?><br>
+            </td>
+                                          <td bgcolor="#ffffff" id="<?php echo 'market_price_'.$key; ?>" align="center">￥<?php echo $goods_info['market_price'];?>元</td>
+                            <td bgcolor="#ffffff" id="<?php echo 'shop_price_'.$key; ?>" align="center">￥<?php echo $goods_info['shop_price'];?>元</td>
+              <td bgcolor="#ffffff" align="center">
+                                <input type="text" id="<?php echo 'num_'.$key; ?>" oninput="changePrice('<?php echo $keys;?>','<?php echo 'num_'.$key; ?>','<?php echo 'shop_price_'.$key;?>','<?php echo 'few_total_amount_'.$key;?>')" style="text-align:center " class="inputBg" size="4" value="<?php echo $goods_info['num'];?>">
+              </td>
+              <td bgcolor="#ffffff" id="<?php echo 'few_total_amount_'.$key; ?>" align="center">￥<?php echo $goods_info['shop_price']*$goods_info['num'];?>元</td>
+              <td bgcolor="#ffffff" align="center">
+                <a class="f6" href="flow.php?act=del&goods_id=<?php echo $key;?>" >删除</a>
+                            </td>
+            </tr>
+            <?php } ?>
+
+
+                      </tbody></table>
+          <table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd" align="center">
+            <tbody><tr>
+              <td bgcolor="#ffffff" id="total">
+                            购物金额合计 ￥<?php echo $totalamount;?>元，比市场价 ￥<?php echo $markettotalamount; ?>元 节省了 ￥<?php echo $discount; ?>元 (<?php echo $per; ?>%)
+              </td>
+              <td bgcolor="#ffffff" align="right">
+                  <a href="flow.php?act=clear">清空购物车</a>
+              </td>
+            </tr>
+          </tbody></table>
+          <input type="hidden" value="update_cart" name="step">
+        </form>
+        <table width="100%" cellspacing="0" cellpadding="5" border="0" bgcolor="#dddddd" align="center">
+          <tbody><tr>
+            <td bgcolor="#ffffff"><a href="javascript:;" onclick="javascript:history.back(-1);"><img alt="continue" src="./view/front/images/continue.gif"></a></td>
+            <td bgcolor="#ffffff" align="right"><a href="javascript:;" onclick="location.href=changeGoodsNum('<?php echo $keys ;?>')"><img alt="checkout" src="./view/front/images/checkout.gif"></a></td>
+          </tr>
+        </tbody></table>
+
+    </div>
+    <div class="blank5"></div>
+
+
+</div>
+<div class="blank"></div>
+<div style="text-align:center"></div>
+
+</body>
+</html>

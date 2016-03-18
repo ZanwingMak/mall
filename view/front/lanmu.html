@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title><?php if(isset($category['cat_name'])){echo $category['cat_name'];}else{echo '商品';} ?></title>
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href="./view/front/css/style.css">
+<link type="text/css" rel="stylesheet" href="./view/front/css/bw.css">
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div>
+</div>
+<div id="mainbox" class="block clearfix">
+	<div class="layout_2">
+    	<div class="layout_left">
+       		
+<div class="cate_tree">
+            	<div class="lib_top">产品分类</div>
+                <div class="lib_mid">
+                	<ul>
+                        <?php foreach($sort as $cat){
+                                 if($cat['lev']<=3){      ?>
+                                    <li class="cate_level_<?php echo $cat['lev']; ?>"><a href="category.php?cat_id=<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_name']; ?></a></li>
+                        <?php }} ?>
+                    </ul>
+                </div>
+                <div class="lib_down"></div>
+</div>
+            <div class="blank"></div> <div class="shop_left_lib">
+</div>
+<div class="blank5"></div>
+  <div style="display: block;" id="history_div" class="shop_left_lib">
+                <div class="lib_top">浏览足迹</div>
+                <div id="history_list" class="lib_mid">
+                  <?php foreach($_SESSION['history_goods'] as $hg){ ?>
+                  <ul class="clearfix">
+                      <li class="goodsimg"><a target="_blank" href="goods.php?goods_id=<?php echo $hg['goods_id'] ?>"><img class="B_blue" alt="<?php echo $hg['goods_name']; ?>" src="<?php echo $hg['thumb_img']; ?> "></a></li>
+                      <li><a title="<?php echo $hg['goods_name']; ?> " target="_blank" href="goods.php?goods_id=<?php echo $hg['goods_id'] ?>"><?php if(mb_strlen($hg['goods_name'],'utf-8')>17){echo (mb_substr($hg['goods_name'],0,17,'utf-8').'...');}else{echo $hg['goods_name'];} ?></a><br>售价：<font class="f1">￥<?php echo $hg['shop_price']; ?> 元</font><br></li>
+                  </ul>
+                  <?php } ?>
+                </div>
+                 <div class="lib_down"></div>
+            </div>
+            <div class="blank"></div>
+
+  
+        	
+        </div>
+        
+        <div class="layout_right">
+        <div class="cat_ad">
+ </div>
+   
+         
+  
+            <?php if(isset($addr)){ ?>当前位置: <a href="index.php">首页</a> <?php } ?>
+            <?php if(isset($addr)){foreach($addr as $value){ ?>
+            <code>&gt;</code> <a href="category.php?cat_id=<?php echo $value['cat_id']; ?>"><?php echo $value['cat_name']; ?></a>
+            <?php }} ?>
+            <div class="blank"></div>
+    
+           
+           
+            <div class="shop_right_lib_comm">
+            	<div class="innerbox goods_list clearfix">
+                  
+ <div style="height:20px; padding:0; padding:3px;" class="switch_dispstyle clearfix">
+  <form name="listform" class="sort" method="GET">
+  <div class="f_l">
+  显示方式：
+  <a onclick="javascript:display_mode('list')" href="#"><img alt="" src="./view/front/images/display_mode_list.gif"></a>
+  <a onclick="javascript:display_mode('grid')" href="#"><img alt="" src="./view/front/images/display_mode_grid_act.gif"></a>
+  <a onclick="javascript:display_mode('text')" href="#"><img alt="" src="./view/front/images/display_mode_text.gif"></a>&nbsp;&nbsp;
+  
+  </div>
+  
+  <div style=" padding:2px;" class="f_r">
+     
+  <a href="#"><img alt="按上架时间排序" src="./view/front/images/goods_id_default.gif"></a>
+  <a href="#"><img alt="按价格排序" src="./view/front/images/shop_price_default.gif"></a>
+  <a href="#"><img alt="按更新时间排序" src="./view/front/images/last_update_DESC.gif"></a>
+  <input type="hidden" value="17" name="category">
+  <input type="hidden" id="display" value="grid" name="display">
+  <input type="hidden" value="0" name="brand">
+  <input type="hidden" value="0" name="price_min">
+  <input type="hidden" value="0" name="price_max">
+  <input type="hidden" value="0" name="filter_attr">
+  <input type="hidden" value="1" name="page">
+  <input type="hidden" value="last_update" name="sort">
+  <input type="hidden" value="DESC" name="order">
+    
+    </div>
+  </form>
+</div>
+   
+    <form onsubmit="return compareGoods(this);" method="post" action="http://www.zhongyis.com/compare.php" name="compareForm">
+     
+ 
+  
+                		<div class="grid">
+
+                            <?php foreach($goodslist as $good){ ?>
+                                 <div class="goodsItem">
+                                    <div class="goodsPic">
+
+                                    <a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img title="<?php echo $good['goods_name']; ?>" class="zoom" src="<?php echo $good['thumb_img']; ?>"><img alt="<?php echo $good['goods_name']; ?>" src="<?php echo $good['thumb_img']; ?>"></a>
+                                    </div>
+                                    <div class="goodsInfo">
+
+                                        <div class="goodsSn"><a class="f_pname" title="<?php echo $good['goods_name']; ?>" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>12){echo (mb_substr($good['goods_name'],0,12,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></div>
+                                            <span class="f_gray">市场价：</span><font class="f_market">￥<?php echo $good['market_price']; ?>元</font><br>本店价：<font class="f_shop">￥<?php echo $good['shop_price']; ?>元</font><br>
+                                    </div>
+                                 </div>
+                            <?php } ?>
+
+                       </div>
+
+
+                 
+    </form>
+    
+  
+  <div class="blank"></div>
+                </div>            
+            </div>
+            <div style=" height:25px; background:#e6eaf3;height:25px; overflow:hidden">
+
+ <div class="pagebar" id="pager">
+  <span style="margin-right:10px;" class="f_l f6">总计<b><?php echo $total_num; ?></b>件商品</span>
+                      <?php echo $pagecode; ?>
+   &nbsp;跳页：<input type="text" name="jump_page" id="jump_page" value="<?php echo $page; ?>" size="1"> / <?php echo $total_page; ?> <input type="button" onclick="alert('被主人玩坏了QAQ')" value="跳转"/>
+ </div>
+
+</div>
+        </div>
+    </div>
+   
+    <div class="blank"></div>
+
+    <!--引入尾部(footer)-->
+    <?php include(ROOT.'/view/front/footer.html'); ?>
+<script type="text/javascript">
+    function jump_page(){
+        var page = document.getElementById('jump_page');
+        alert(page);
+        var url = <?php echo $page_url; ?>;
+        url = url + 'page=' + page;
+        alert(url);
+        return url;
+    }
+</script>
+</body></html>

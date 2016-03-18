@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<title>注册</title>
+
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<body>
+
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div></div>
+<div class="block block1">
+  当前位置: <a href="index.php">首页</a> <code>&gt;</code> 用户中心 <div class="blank"></div>
+
+
+
+
+
+            <div class="usBox">
+  <div class="usBox_2 clearfix">
+   <div class="logtitle3"></div>
+    <form style="padding-left:200px;" action="register.php" method="post" name="formUser">
+      <table width="100%" cellspacing="3" cellpadding="5" border="0" align="left">
+        <tbody><tr>
+          <td width="13%" align="right">用户名</td>
+          <td width="87%">
+          <input type="text" name="username" size="25" id="username" onblur="is_registered(this.value);" class="inputBg">
+            <span id="username_notice" style="color:#FF0000"> *</span>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">邮箱</td>
+          <td>
+          <input type="text" name="email" size="25" id="email" onblur="checkEmail(this.value);" class="inputBg">
+            <span id="email_notice" style="color:#FF0000"> *</span>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">密码</td>
+          <td>
+          <input type="password" name="password" id="password" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="inputBg" style="width:179px;">
+            <span style="color:#FF0000" id="password_notice"> *</span>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">确认密码</td>
+          <td>
+          <input type="password" name="conform_password" id="conform_password" class="inputBg" style="width:179px;">
+            <span style="color:#FF0000" id="conform_password_notice"> *</span>
+          </td>
+        </tr>
+                      <tr>
+          <td>&nbsp;</td>
+          <td><label>
+            <input type="checkbox" name="agreement" value="1" checked="checked">
+            我已看过并接受《<a href="#" style="color:blue" target="_blank">用户协议</a>》</label></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="left">
+          <input type="hidden" value="act_register" name="act">
+          <input type="submit" value="" class="us_Submit_reg">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+                 <tr>
+                    <td>&nbsp;</td>
+          <td align="left"><a href="#" class="f6">密码问题找回密码</a>   <a href="#" class="f6">注册邮件找回密码</a></td>
+                  </tr>
+
+      </tbody></table>
+    </form>
+  </div>
+</div>
+
+
+
+    
+
+    
+
+    
+
+
+
+ <div class="blank"></div>
+    <!--引入尾部(footer)-->
+    <?php include(ROOT.'/view/front/footer.html'); ?>
+</body>
+</html>

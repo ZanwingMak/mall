@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title><?php echo $good['goods_name'];?></title>
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+<link href="./view/front/css/jqzoom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    function getbuynum(){
+        var num = document.getElementById('number').value;
+        var max_goods = <?php echo $good['goods_number']; ?>;
+        if(num>max_goods){
+            alert("购买数量超过商品库存!");
+            return '#';
+        }else if(num<=0){
+            alert("请正确填写购买数量!");
+            return '#';
+        }else{
+            var goods_id = <?php echo $good['goods_id']; ?>;
+            var url = 'flow.php?act=buy&goods_id='+goods_id+'&num='+num;
+            return url;
+        }
+    }
+    function changePrice(){
+        var num = document.getElementById('number').value;
+        var price = document.getElementById('ECS_SHOPPRICE').textContent.substring(1,document.getElementById('ECS_SHOPPRICE').textContent.indexOf("元"));
+        document.getElementById('ECS_GOODS_AMOUNT').innerText = '￥'+num*price+'元';
+    }
+</script>
+</head>
+<body style="cursor: auto;">
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div>
+<link href="./view/front/css/greybox.css" rel="stylesheet" type="text/css" media="all">
+<link href="./view/front/css/polo.css" rel="stylesheet" type="text/css" media="all">
+</div>
+<div class="block clearfix">
+	<div class="layout_4">
+        
+        <div class="layout_right">
+            当前位置: <a href="index.php">首页</a>
+            <?php foreach($addr as $value){ ?>
+             <code>&gt; </code><a href="category.php?cat_id=<?php echo $value['cat_id']; ?>"><?php echo $value['cat_name']; ?></a>
+            <?php } ?> <code>&gt;</code> <?php echo $good['goods_name'];?>
+            <div class="blank"></div>
+        
+        	<div class="shop_right_lib_comm" style="border-top:1px solid #e6e6e6">
+            	<div class="innerbox clearfix">
+                	<div class="goods_info">
+                    	<div class="polo_gallery f_l">
+                          
+					      <div class="goods_gallery">
+                            	<div class="gup" id="gleft"></div>
+                                <div class="gcontent" id="goods_gallery" style="overflow: hidden; width: 80px; height: 400px;">
+                                	<table>
+                                                                        <tbody><tr>
+                                    <td><div class="curr"><a href="#" onmouseover="sw_goodsimg(this)"><img src="<?php echo $good['thumb_img'];?>" alt="<?php echo $good['goods_name'];?>"></a></div></td>
+                                    </tr>
+                                                                        </tbody></table>
+                                </div>
+                                <div class="gdown" id="gright"></div>
+                            </div>
+                               <script type="text/javascript">								
+								var goods_gallery=new Marquee("goods_gallery");
+								goods_gallery.Direction="up";
+								goods_gallery.Step=0;
+								goods_gallery.Width=80;
+								goods_gallery.Height=400;
+								goods_gallery.Timer=20;
+								var turnleft = document.getElementById("gleft");
+								var turnright = document.getElementById("gright");
+								goods_gallery.Start();
+								turnleft.onmouseover=function(){goods_gallery.Direction=0}
+								turnleft.onmouseout=turnleft.onmouseup=function(){goods_gallery.Step=goods_gallery.BakStep}
+								turnleft.onmousedown=turnright.onmousedown=function(){goods_gallery.Step=goods_gallery.BakStep+10}
+								turnright.onmouseover=function(){goods_gallery.Direction=1}
+								turnright.onmouseout=turnright.onmouseup=function(){goods_gallery.Step=goods_gallery.BakStep}
+							    </script> 
+                                
+	                              
+                        </div>
+                    	<div class="goods_pics_polo f_l">
+                        	<div class="goods_big_img" style="position:relative; border:1px solid #e6e6e6">
+                             <a href="#" class="jqzoom" id="picbox" style="outline-style: none; cursor: crosshair; display: block; height: 400px; width: 300px;" title="">                        	
+                              <img src="<?php echo $good['goods_img'];?>" alt="<?php echo $good['goods_name'];?>" class="goodsimg" id="goods_bimg" style="position: absolute; top: 0px; left: 0px;" title="">                             </a>                             </div>
+                             <a style="line-height:25px; display:block; width:400px; height:20px; text-align:center;" href="javascript:;" onclick="window.open('<?php echo $good['ori_img'];?>'); return false;"><img src="./view/front/images/biao3.gif"> 点击查看大图</a>
+                          
+                             
+                             
+    		  </div>
+                    	
+                        <div class="goods_intro_polo f_r">
+                        	<div class="textInfo">
+     <form action="javascript:addToCart(315)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+		 <div class="clearfix" style="font-size:14px; font-weight:bold;  color:#333"><?php echo $good['goods_name'];?></div>
+      <ul>
+       
+        <li class="clearfix">
+        <dd>
+                 
+        
+            
+       <div>
+       <strong>商品货号：</strong><?php echo $good['goods_sn'];?></div>
+
+         </dd>
+        </li>
+
+        <?php if($good['is_on_sale'] == 0 || $good['is_delete'] == 1){
+            echo '<br><br><font class="shop1">本商品已下架,暂时无法购买</font>';
+          }else{  ?>
+        <li class="clearfix">
+       <dd>
+       <strong>本店售价：</strong><font class="shop1" id="ECS_SHOPPRICE">￥<?php echo $good['shop_price'];?>元</font>
+        </dd>
+      </li>
+                     <li class="clearfix">
+       <dd>
+       <strong style="color:#999">市场价格：</strong><font class="market" value="">￥<?php echo $good['market_price'];?>元</font>
+         </dd>
+      </li>
+
+        <li class="clearfix price_line">
+       </li>
+          <li class="padd">
+              <input type="hidden" name="spec_list" value="9">
+          </li>
+       <li class="clearfix">
+       <dd>
+       <strong>用户评价：</strong>
+      <img src="./view/front/images/stars5.gif" alt="comment rank 5">
+       </dd>
+      </li>
+    </ul>
+       <ul class="bnt_bg clearfix">
+       <li>
+       <div class="f_l">
+<div style="_padding-top:17px;">
+       购买数量：<input type="text" name="number" id="number" value="1" size="4" oninput="changePrice()" style="border:1px solid #ccc; width:40px;"> (库存：<?php echo $good['goods_number']; ?>)
+        </div>
+       </div>
+      <div class="f_l" style="padding-left:25px; border:none">
+       <strong style=" font-weight: bold; color:#666; ">商品总价：</strong><font id="ECS_GOODS_AMOUNT" class="shop">￥<?php echo $good['shop_price'];?>元</font>
+      </div>
+    <div class="f_r">
+      <a href="javascript:;" onclick="location.href=getbuynum()"><img src="./view/front/images/bnt_cat.gif"></a>
+     </div>
+      </li>
+           <?php } ?>
+      </ul>
+      </form>
+
+     </div>
+
+                        </div>
+                    </div>
+                    <div class="blank"></div>
+
+                    <div class="tabs clearfix">
+                        <div class="layout_2">
+                        <div class="layout_left">
+
+                        <div class="cate_tree">
+                            <div class="lib_top">产品分类</div>
+                            <div class="lib_mid">
+                                <ul>
+                                    <?php foreach($sort as $cat){
+                                 if($cat['lev']<=3){      ?>
+                                    <li class="cate_level_<?php echo $cat['lev']; ?>"><a href="category.php?cat_id=<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_name']; ?></a></li>
+                                    <?php }} ?>
+                                </ul>
+                            </div>
+                            <div class="lib_down"></div>
+                        </div>
+                        <div class="blank"></div> <div class="shop_left_lib">
+                    </div>
+                        <div class="blank5"></div>
+                        <div style="display: block;" id="history_div" class="shop_left_lib">
+                            <div class="lib_top">浏览足迹</div>
+                            <div id="history_list" class="lib_mid">
+                                <?php foreach($_SESSION['history_goods'] as $hg){ ?>
+                                <ul class="clearfix">
+                                    <li class="goodsimg"><a target="_blank" href="goods.php?goods_id=<?php echo $hg['goods_id'] ?>"><img class="B_blue" alt="<?php echo $hg['goods_name']; ?>" src="<?php echo $hg['thumb_img']; ?> "></a></li>
+                                    <li><a title="<?php echo $hg['goods_name']; ?> " target="_blank" href="goods.php?goods_id=<?php echo $hg['goods_id'] ?>"><?php if(mb_strlen($hg['goods_name'],'utf-8')>17){echo (mb_substr($hg['goods_name'],0,17,'utf-8').'...');}else{echo $hg['goods_name'];} ?></a><br>售价：<font class="f1">￥<?php echo $hg['shop_price']; ?> 元</font><br></li>
+                                </ul>
+                                <?php } ?>
+                            </div>
+                            <div class="lib_down"></div>
+                        </div>
+                        <div class="blank"></div>
+
+                        </div>
+
+                            <div class="layout_right">
+
+                                <div class="tabItem f_l">
+                                    <div style="font-size:14px; color:#999; font-weight:bold; border-bottom:1px solid #bebebe; padding-bottom:8px; padding-top:10px;">商品说明</div>
+                                    <div class="blank"></div>
+                                    <div>
+                                        <?php echo $good['goods_desc'];?>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+            	</div>
+            </div>
+
+            <!--
+             <div>
+			<div class="blank"></div>
+            <div class="f_l">
+             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<table>
+                                                                                                        </table>
+             </div>
+             <div class="f_r" style="width:350px; ">
+             <div style="font-size:14px; font-weight:bold;">商品尺寸表</div>
+             <div style="height:100px; overflow-y:auto">
+				               </div>
+             </div>
+             <div class="blank"></div>
+			 </div>
+           -->
+
+
+    <!--
+             <div class="layout_2 clearfix">
+
+
+             <div class="layout_left">
+                <div class="blank"></div>
+             </div>
+
+
+             <div class="layout_right">
+
+             <div id="ECS_COMMENT"> <div class="box">
+     <div class="box_1">
+      <h3><span class="text">用户评论</span>(共<font class="f1">0</font>条评论)</h3>
+
+ <div class="boxCenterList">
+
+
+		<ul class="comments">
+               <li>暂时还没有任何用户评论</li>
+               </ul>
+      
+
+ 
+
+
+    <div class="blank5"></div>
+      
+      <div>
+      <form action="javascript:;" onsubmit="submitComment(this)" method="post" name="commentForm" id="commentForm">
+       <table width="710" cellspacing="5" cellpadding="0" border="0">
+        <tbody><tr>
+          <td width="64" align="right">用户名：</td>
+          <td width="631">匿名用户</td>
+        </tr>
+        <tr>
+          <td align="right">E-mail：</td>
+          <td>
+          <input type="text" name="email" id="email" maxlength="100" value="" class="inputBorder">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">评价等级：</td>
+          <td>
+          <input type="radio" name="comment_rank" value="1" id="comment_rank1"> <img src="./view/front/images/stars1.gif">
+          <input type="radio" name="comment_rank" value="2" id="comment_rank2"> <img src="./view/front/images/stars2.gif">
+          <input type="radio" name="comment_rank" value="3" id="comment_rank3"> <img src="./view/front/images/stars3.gif">
+          <input type="radio" name="comment_rank" value="4" id="comment_rank4"> <img src="./view/front/images/stars4.gif">
+          <input type="radio" name="comment_rank" value="5" checked="checked" id="comment_rank5"> <img src="./view/front/images/stars5.gif">
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" align="right">评论内容：</td>
+          <td>
+          <textarea name="content" class="inputBorder" style="height:50px; width:620px;"></textarea>
+          <input type="hidden" name="cmt_type" value="0">
+          <input type="hidden" name="id" value="315">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+                    <div style="padding-left:15px; text-align:left; float:left;">
+          验证码：<input type="text" name="captcha" class="txt_style_1" style="width:50px; margin-left:5px;">
+          <img align="absmiddle" src="./view/front/images/captcha.php" alt="captcha" onclick="this.src='captcha.php?'+Math.random()">
+          </div>
+                    <input type="submit" name="" value="提交" class="f_r btn_style_2">
+          </td>
+        </tr>
+      </tbody></table>
+      </form>
+        </div>
+      </div>
+          
+</div>
+</div>
+<div class="blank"></div>
+</div>
+
+             </div>
+-->
+   
+    <div class="blank"></div>
+    <!--引入尾部(footer)-->
+    <?php include(ROOT.'/view/front/footer.html'); ?>
+</body>
+
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<title>登录</title>
+
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div>
+</div>
+
+
+<div class="block block1">
+  当前位置: <a href="#">首页</a> <code>&gt;</code> 用户中心 <div class="blank"></div>
+
+
+<div class="usBox clearfix">
+  <div class="usBox_1 f_l">
+   <div class="logtitle"></div>
+   <div style="color:#999; padding:30px 20px 10px 30px;">已注册用户请从这里登录</div>
+   <form onsubmit="return userLogin()" method="post" action="login.php" name="formLogin">
+        <table width="100%" cellspacing="5" cellpadding="3" border="0" align="left" class="user_table">
+          <tbody>
+          <tr>
+            <td width="15%" align="right">用户名</td>
+            <td width="85%"><input type="text" class="inputBg" name="username" value="<?php if(isset($_COOKIE['remember_username'])){echo $_COOKIE['remember_username'];} ?>"></td>
+          </tr>
+          <tr>
+            <td align="right">密码</td>
+            <td>
+            <input type="password" onclick="this.value=''" class="inputBg" name="password">
+            </td>
+          </tr>
+          <tr>
+              <td align="right">验证码</td>
+              <td>
+                  <input type="text" onclick="this.value=''" class="inputBg" name="vcode" style="width:80px;height:48px;"><img src="vcode.php" onclick="this.src=this.src+'?'+Math.random()"/>(点击图片刷新验证码)
+              </td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="checkbox" id="remember" name="remember" value="1" checked="true"><label for="remember">两周内记住用户名</label></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td align="left">
+            <input type="hidden" value="act_login" name="act">
+            <input type="submit" class="us_Submit" value="" name="submit">
+            </td>
+          </tr>
+	  <tr><td></td>
+      
+      
+      <td style="padding-top:80px;"><a class="f3" href="#">密码问题找回密码</a>&nbsp;&nbsp;&nbsp;<a class="f3" href="#">注册邮件找回密码</a></td></tr>
+      </tbody></table>
+    </form>
+    <div class="blank"></div>
+  </div>
+  <div class="usTxt">
+  <div class="regtitle"></div>
+  <div style="padding-left:50px; padding-top:25px;">
+    <p style="color:#999">如果您不是会员，请注册</p> <br>
+    <strong class="f4">注册之后您可以：</strong><br>
+    1. 购买商品<br>
+    2. 保存您的个人资料<br>
+    3. 收藏您关注的商品<br>
+    4. 享受会员积分制度<br>
+    5. 订阅店铺商品信息<br>
+    <a href="register.php"><img src="./view/front/images/bnt_ur_reg.gif"></a>
+  </div>
+   </div>
+</div>
+<div class="blank"></div>
+    <!--引入尾部(footer)-->
+    <?php include(ROOT.'/view/front/footer.html'); ?>
+</body>
+</html>

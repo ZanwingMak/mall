@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="ECSHOP v2.7.2" name="Generator">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+
+<title>在线支付</title>
+
+<link href="favicon.ico" rel="shortcut icon">
+<link type="image/gif" href="animated_favicon.gif" rel="icon">
+<link type="text/css" rel="stylesheet" href="./view/front/css/style.css">
+
+</head>
+
+<body>
+
+<!--引入头部(header)-->
+<?php include('header.php'); ?>
+
+<div class="blank"></div>
+
+
+
+<div class="block">  
+当前位置: <a href=".">首页</a> <code>&gt;</code> 购物流程 <div class="blank"></div>  
+  
+  
+
+        
+        
+                
+        <div style="margin:30px auto 70px auto;" class="flowBox">
+         <h6 style="text-align:center; height:30px; line-height:30px; font-size:14px; background:#fff; color:#333333; font-weight:bold">感谢选购！您的订单已提交成功，请记住您的订单号: <font style="color:red"><?php echo $order_sn; ?></font></h6>
+          <table width="100%" cellspacing="0" cellpadding="15" border="0" bgcolor="#fff" align="center" style="border:1px solid #ddd; margin:20px auto;">
+            <tbody><tr>
+              <td bgcolor="#FFFFFF" align="center">
+              您的应付款金额为: <strong>￥<?php echo $order_amount; ?>元</strong>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#FFFFFF" align="center"><div style="text-align:center"><input type="button" value="立即在线支付"></div></td>
+            </tr>
+                      </tbody></table>
+                    <p style="text-align:center; margin-bottom:20px;">您可以 <a href="index.php">返回首页</a> 或去 <a href="user.php">用户中心</a></p>
+        </div>
+                
+
+
+
+</div>
+<div class="blank"></div>
+<div style="text-align:center"></div>
+
+</body></html>

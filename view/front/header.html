@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        function checkSearchForm()
+        {
+            if(document.getElementById('keyword').value)
+            {
+                return true;
+            }
+            else
+            {
+                alert("请输入搜索关键词！");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div style="position:relative;z-index:999999" class="block">
+    <div class="page_header clearfix">
+        <div style="height:85px; " class="block">
+            <div class="logo f_l"><a href="index.php"><img src="./view/front/images/2x.png"></a></div>
+            <div class="member_login f_l">
+                <font id="ECS_MEMBERZONE"><div id="append_parent"></div>
+                    <?php
+if( (isset($_SESSION['username'])&&!empty($_SESSION['username'])) && (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) ){ ?>
+                    您好，<font class="f_orange_bold"><?php echo $_SESSION['username']; ?></font>，欢迎您回来！
+                    <a href="member.php">用户中心</a> | <a href="login.php?act=exit">安全退出</a>
+                    <?php }else{ ?>
+                    欢迎光临XX商城！&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="login.php">登录</a> | <a href="register.php">注册</a>
+                    <?php } ?>
+
+                </font>
+            </div>
+            <div class="page_top f_r">
+
+
+                <a href="flow.php">查看购物车</a>
+                |
+                <a href="member.php">会员中心</a>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="mid_nav" class="mid_nav clearfix">
+        <div class="block">
+            <div class="nav_list f_l">
+                <ul>
+                    <li><a href="index.php">首页</a></li>  <!--class="curr"为选中-->
+                    <?php foreach($sons as $cat){ ?>
+                    <li onmouseout="sw_nav(this,0);" onmouseover="sw_nav(this,1);" style="position:relative; z-index:999999">
+                        <a href="category.php?cat_id=<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_name']; ?></a>
+                        <div class="sub_nav" style="display: none;">
+                            <a class="level_<?php echo $cat['lev']; ?>" href="category.php?cat_id=<?php echo $cat['cat_id']; ?>"><?php echo $cat['cat_name']; ?></a>
+                        </div>
+                        <iframe scrolling="no" frameborder="0" class="nomask" style="display: none;"></iframe>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block">
+    <div style="width:822px; overflow:hidden" class="f_l">
+        <div class="hot_cate clearfix">
+            <div class="f_l"><span class="f_gray_white">热门分类：</span>&nbsp;&nbsp;
+                &nbsp;<a href="category.php?cat_id=4">动漫周边</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=23">抱枕</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=12">动画</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=14">音乐</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=6">游戏</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=11">轻小说</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=20">手办</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=23">抱枕</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=10">漫画</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=18">水杯</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=21">T-shirt</a>&nbsp;&nbsp;
+                <a href="category.php?cat_id=16">海报</a>&nbsp;&nbsp;
+
+            </div>
+        </div>
+        <div class="block clearfix brand_list">
+            <div class="search_box f_l">
+                <form onsubmit="return checkSearchForm()" action="search.php" method="post" name="searchForm" id="searchForm">
+                        <input type="text" style="vertical-align:middle; width:120px;" class="txt_style_search" value="" id="keyword" name="keywords"> <input type="submit" style="vertical-align:middle" value="搜索" class="btn_style_3"> &nbsp;
+                </form>
+            </div>
+            <div style=" padding-top:0px; padding-right:5px; overflow:hidden" class="hot_keyword f_l">热门关键字：
+
+                <a href="search.php?keywords=初音">初音</a>&nbsp;
+                <a href="search.php?keywords=国产">国产</a>&nbsp;
+                <a href="search.php?keywords=哔哩哔哩">哔哩哔哩</a>&nbsp;
+                <a href="search.php?keywords=抱枕">抱枕</a>&nbsp;
+                <a href="search.php?keywords=CD">CD</a>&nbsp;
+                <a href="search.php?keywords=正版">正版</a>&nbsp;
+                <a href="search.php?keywords=手办">手办</a>&nbsp;
+                <a href="search.php?keywords=周边">周边</a>&nbsp;
+                <a href="search.php?keywords=福袋">福袋</a>&nbsp;
+                <a href="search.php?keywords=背包">背包</a>
+            </div>
+
+        </div>
+    </div>
+    <div style="position:relative" class="cart_tip f_r">
+        <img src="./view/front/images/car.gif">
+        <a title="查看购物车" href="flow.php">购物车中有 <b><?php echo $cargoodskind; ?></b> 件商品 合计 <b>￥<?php echo $totalamount; ?>元</b></a>
+        <a style="position:absolute; top:30px; right:0px;" href="flow.php"><img src="./view/front/images/jiesuan.gif"></a>
+    </div>
+</div>
+</body>
+</html>

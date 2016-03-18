@@ -1,0 +1,156 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="ECSHOP v2.7.2" name="Generator">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>XX商城</title>
+<link href="favicon.ico" rel="shortcut icon">
+<link type="image/gif" href="animated_favicon.gif" rel="icon">
+<link type="text/css" rel="stylesheet" href="./view/front/css/style.css">
+</head>
+<body>
+<!--引入头部(header)-->
+<?php include('header.php'); ?>
+<div class="blank"></div>
+<div class="block">
+<div id="adSmall">
+</div>
+</div>
+<div class="blank"></div>
+<div class="block clearfix">
+<div class="layout_1">
+        <div class="layout_left">
+        	<div class="lib_adv_1">
+        	<a target="_blank" href="http://12450.xyz"><img width="730" height="422" border="0" src="./view/front/images/4745525aa1a5e29a.jpg"></a>
+            </div>
+            <div class="blank"></div>
+            <div>
+
+            </div>
+        </div>
+        <div class="layout_right">
+<?php foreach($hotgoodslistthree as $good){ ?>
+    <div class="ad_weizhi"><table cellspacing="0" cellpadding="0">
+    <tbody><tr><td><a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img width="235" height="135" border="0" src="<?php echo $good['ori_img']; ?>"></a></td></tr>
+    </tbody></table></div>
+<?php } ?>
+        </div>
+    </div>
+  
+<div style="float:left;width:100%;" id="rec_best" class="shop_right_lib"><div class="np_index_content_part">
+  <div id="itemNew" class="itemTit">
+       <div><a href="search.php?keywords=new"><img src="./view/front/images/new.png">新品</a></div>
+       <div class="more"><a href="search.php?keywords=new">更多请点击 &gt;&gt;</a></div>
+  </div>
+  
+  
+  
+  <div class="blank"></div>
+  
+  <div class="lib_mid">
+    <div id="show_new_area" class="tabItem">
+        <div class="grid">
+            <?php foreach($newgoodslist as $good){ ?>
+            <div class="goodsItem">
+                <div class="goodsPic">
+                <a class="preview" target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img alt="<?php echo $good['goods_name']; ?>" src="<?php echo $good['thumb_img']; ?>"></a>
+                </div>
+                <div class="goodsInfo">
+                <div class="goodsSn"><a target="_blank" class="f_white" title="<?php echo $good['goods_name']; ?>" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>12){echo (mb_substr($good['goods_name'],0,12,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></div>
+                <span class="f_gray">市场价：</span><font class="f_market">￥<?php echo $good['market_price']; ?>元</font><br>
+                本店价：<font class="f_shop">￥<?php echo $good['shop_price']; ?>元                                                              </font>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+  </div>
+</div></div>
+<div class="blank"></div>
+  
+<div style="float:left;width:100%;" id="rec_best" class="shop_right_lib"><div class="np_index_content_part">
+ <div id="itemBest" class="itemTit">
+      <div><a href="search.php?keywords=best"><img src="./view/front/images/good.png">推荐</a></div>
+      <div class="more"><a href="search.php?keywords=best">更多请点击 &gt;&gt;</a></div>
+  </div>
+  <div class="blank5"></div>
+  <div class="cat_ads_box clearfix">
+   <div class="f_l clearfix"><a target="_blank" href="goods.php?goods_id=<?php echo $onsalegoodslistthree[0]['goods_id']; ?>"><img width="445" height="300" src="<?php echo $onsalegoodslistthree[0]['ori_img']; ?>"></a></div>
+   <div class="f_m clearfix"><a target="_blank" href="goods.php?goods_id=<?php echo $onsalegoodslistthree[1]['goods_id']; ?>"><img width="280" height="300" src="<?php echo $onsalegoodslistthree[1]['ori_img']; ?>"></a></div>
+   <div class="f_r clearfix">
+     <div id="cat_ads_slider_42" class="cat_ads_slider">
+	   <dl>
+           <?php $i = 0; foreach($bestgoodslist as $good){ ?>
+	    	     <dt id="<?php echo $i; ?>"><p><a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>17){echo (mb_substr($good['goods_name'],0,17,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></p></dt>
+           <?php $i++; } ?>
+		 <dd class="5"><a target="_blank" href="goods.php?goods_id=<?php echo $onsalegoodslistthree[2]['goods_id']; ?>"><img width="235" height="149" src="<?php echo $onsalegoodslistthree[2]['ori_img']; ?>"></a></dd>			   </dl>
+	 </div>
+   </div>
+  </div>
+  <div class="blank"></div>
+    <div class="lib_mid">                
+                	<div class="tabItem">
+                	<div class="grid">
+                        <?php foreach($animegoodslist as $good){ ?>
+                        <div class="goodsItem">
+                            <div class="goodsPic">
+                                <a class="preview" target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img alt="<?php echo $good['goods_name']; ?>" src="<?php echo $good['thumb_img']; ?>"></a>
+                            </div>
+                            <div class="goodsInfo">
+                                <div class="goodsSn"><a class="f_white" target="_blank" title="<?php echo $good['goods_name']; ?>" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>12){echo (mb_substr($good['goods_name'],0,12,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></div>
+
+                                <span class="f_gray">市场价：</span><font class="f_market">￥<?php echo $good['market_price']; ?>元</font><br>
+                                本店价：<font class="f_shop">￥<?php echo $good['shop_price']; ?>元                                                              </font>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        
+                    </div>
+					</div>                   
+                </div>
+ </div></div>
+<div class="blank"></div>
+<div style="float:left;width:100%;" id="rec_best" class="shop_right_lib"><div class="np_index_content_part">
+ <div id="itemBest" class="itemTit">
+      <div><a href="search.php?keywords=hot"><img src="./view/front/images/hot.png">热门</a></div>
+      <div class="more"><a href="search.php?keywords=hot">更多请点击 &gt;&gt;</a></div>
+  </div>
+  <div class="blank5"></div>
+  <div class="cat_ads_box clearfix">
+   <div class="f_l clearfix"><a target="_blank" href="goods.php?goods_id=<?php echo $bestgoodslistthree[0]['goods_id']; ?>"><img width="445" height="300" src="<?php echo $bestgoodslistthree[0]['ori_img']; ?>"></a></div>
+   <div class="f_m clearfix"><a target="_blank" href="goods.php?goods_id=<?php echo $bestgoodslistthree[1]['goods_id']; ?>"><img width="280" height="300" src="<?php echo $bestgoodslistthree[1]['ori_img']; ?>"></a></div>
+   <div class="f_r clearfix">
+     <div id="cat_ads_slider_17" class="cat_ads_slider">
+	   <dl>
+           <?php $i = 0; foreach($onsalegoodslist as $good){ ?>
+           <dt id="<?php echo $i ?>"><p><a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>17){echo (mb_substr($good['goods_name'],0,17,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></p></dt>
+           <?php $i++; } ?>
+		 <dd class="5"><a target="_blank" href="goods.php?goods_id=<?php echo $bestgoodslistthree[2]['goods_id']; ?>"><img width="235" height="149" src="<?php echo $bestgoodslistthree[2]['ori_img']; ?>"></a></dd>			   </dl>
+	 </div>
+   </div>
+  </div>
+  <div class="blank"></div>
+    <div class="lib_mid">                
+                	<div class="tabItem">
+                	<div class="grid">
+                        <?php foreach($hotgoodslist as $good){ ?>
+                        <div class="goodsItem">
+                            <div class="goodsPic">
+                                <a class="preview" target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img alt="<?php echo $good['goods_name']; ?>" src="<?php echo $good['thumb_img']; ?>"></a>
+                            </div>
+                            <div class="goodsInfo">
+                                <div class="goodsSn"><a class="f_white" target="_blank" title="<?php echo $good['goods_name']; ?>" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><?php if(mb_strlen($good['goods_name'],'utf-8')>12){echo (mb_substr($good['goods_name'],0,12,'utf-8').'...');}else{echo $good['goods_name'];} ?></a></div>
+
+                                <span class="f_gray">市场价：</span><font class="f_market">￥<?php echo $good['market_price']; ?>元</font><br>
+                                本店价：<font class="f_shop">￥<?php echo $good['shop_price']; ?>元                                                              </font>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+					</div>                   
+                </div>
+ </div></div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+<!--引入尾部(footer)-->
+<?php include(ROOT.'/view/front/footer.html'); ?>
+</body></html>

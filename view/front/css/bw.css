@@ -1,0 +1,91 @@
+@charset "utf-8";
+#BDBridgeWrap,#BDBridgeNewWrap,#BDBridgeMess{overflow:visible}
+#BDBridgeIconWrap{width:2px; height:2px; position:fixed; _position:absolute; top:50%; left:10px; z-index:2147483647;
+margin:0; padding:0}
+#BDBridgeInviteWrap{width:2px; height:2px; position:fixed; _position:absolute; top:50%; left:50%; z-index:2147483647;
+margin:-77px 0 0 -160px; padding:0}
+#BDBridgeLS{width:2px; height:2px; position:fixed; _position:absolute; top:50%; right:10px; z-index:2147483647}
+#BDBridgeFixedWrap{width:2px; height:2px}
+#BDBridgeChatBox{width:301px; height:49px; padding:13px 7px 0 5px; margin:-12px 0 0 0; position:relative; background:url(./images/invite-send-bg.png); _background:url(./images/invite-send-bg.gif);
+line-height:normal}
+#BDBridgeChatArea{position:absolute; top:13px; left:5px; width:254px; height:31px; border:1px solid #999; font-family:Tahoma; font-size:12px; line-height:15px; resize:none;
+background:#fff; font-weight:normal}
+#BDBridgeStartChat{position:absolute; top:13px; right:7px; height:35px; width:39px; background:url(./images/invite-send.gif); text-decoration:none;
+line-height:normal}
+#BDBridgeStartChat:hover{background:url(./images/invite-send.gif) 0 -35px;
+position:absolute; line-height:normal}
+#BDBridgeStartChat:active{background:url(./images/invite-send.gif) 0 -70px;
+position:absolute; line-height:normal}
+
+#BDBridgeMess{ height:0;font-size:0;margin:0;padding:0;line-height:0; }
+
+#BaiduBridgePigeon div, 
+#BaiduBridgePigeon span,
+#BaiduBridgePigeon a,
+#BaiduBridgePigeon form,
+#BaiduBridgePigeon input,
+#BaiduBridgePigeon textarea {
+	line-height:normal;
+	font-size:12px;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	outline:none;
+	font-family:Arial;
+	text-align:left;
+	overflow:visible;
+	border:0;
+	position:static; 
+	width:auto;
+	height:auto;
+	text-indent:0;
+}
+
+#BaiduBridgePigeon textarea { 
+	overflow-y:auto;
+	overflow-x:hidden;
+	resize:none;
+	background-color:#fff;
+	color:#000;
+}
+
+#BaiduBridgePigeon input {
+	overflow:hidden;
+	background-color:#fff;
+	color:#000;
+}
+
+#BaiduBridgePigeon .bd_bp_pigeon	{ padding:3px; }
+
+#BaiduBridgePigeon .bd_bp_clear_all	{ clear:both;line-height:0px;font-size:0px;height:0;zoom:1;overflow:hidden; }
+#BaiduBridgePigeon .bd_bp_clear		{ clear:both;line-height:0px;font-size:0px;height:8px;width:1px;overflow:hidden; }
+
+#BaiduBridgePigeon .bd_bp_0_head	{ color:#666;float:left;width:60px;line-height:20px;overflow:hidden;margin-right:6px; }
+#BaiduBridgePigeon .bd_bp_1_head	{ color:#666;float:left;border-right:1px solid #ccc;padding:0 4px;background:url(./images/mess.gif);line-height:20px; }
+#BaiduBridgePigeon .bd_bp_0_input	{ margin-top:2px;float:left;color:#ccc; }
+#BaiduBridgePigeon .bd_bp_1_input	{ margin-top:-1px;line-height:20px;float:left;color:#ccc;border:1px solid #cccccc;height:20px; }
+
+#BaiduBridgePigeon .bd_bp_mess		{ height:92px;border:1px solid #ccc;color:#ccc;font-size:12px;padding-top:2px;float:left; }
+#BaiduBridgePigeon .bd_bp_item		{ height:20px;border:1px solid #ccc;float:left;overflow:hidden; }
+#BaiduBridgePigeon .bd_bp_select	{ border:1px solid #ccc;vertical-align:auto;float:left;color:#ccc;height:22px; }
+#BaiduBridgePigeon .bd_bp_alert		{ color:#cc3333;padding-left:1px;float:left; }
+
+#BaiduBridgePigeon					{ position:absolute; }
+#BaiduBridgePigeon #BdBPTwoPx		{ height:1px;font-size:0px;line-height:1px;margin:0 2px; }
+#BaiduBridgePigeon #BdBPOnePx		{ height:1px;font-size:0px;line-height:1px;margin:0 1px; }
+
+#BaiduBridgePigeon #BdBPBody		{ background-color:#fff;overflow-y:scroll;overflow-x:hidden; }
+#BaiduBridgePigeon #BdBPTitle		{ padding:3px 9px 5px;zoom:1; }
+#BaiduBridgePigeon #BdBPTitleText	{ float:left;font-weight:bold; }
+#BaiduBridgePigeon #BdBPForm		{ padding:8px 0px 8px 8px; }
+
+#BaiduBridgePigeon #BdBPCopyRight	{ height:16px;line-height:16px;margin-top:7px;  }
+#BaiduBridgePigeon #BdBPCrIcon		{ margin:4px 6px 0 0;float:left; }
+#BaiduBridgePigeon #BdBPCrIconRed	{ background-color:#bb2a1f;width:18px;height:5px;line-height:0;font-size:0;float:left;cursor:pointer; }
+#BaiduBridgePigeon #BdBPCrIconBlue	{ background-color:#342aff;width:18px;height:5px;line-height:0;font-size:0;float:left;cursor:pointer; }
+
+#BaiduBridgePigeon #BdBPClose		{ float:right;background:url(./images/mess.gif) 1px 12px;width:12px;height:11px;font-size:0;line-height:0; }
+#BaiduBridgePigeon #BdBPSend		{ width:59px;height:22px;line-height:22px;text-align:center;color:#000;background-position:0 -40px;background-image:url(./images/mess.gif);margin:4px 0; }
+#BaiduBridgePigeon #BdBPSend:hover	{ background-position:0 -62px; }
+#BaiduBridgePigeon #BdBPSend:active	{ background-position:0 -84px; }

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+
+<title>系统提示</title>
+
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div>
+</div>
+<div class="block">
+  <div class="box">
+   <div class="box_1">
+    <h3><span>系统信息</span></h3>
+    <div align="center" class="boxCenterList RelaArticle">
+      <div style="margin:20px auto;">
+      <p style="font-size: 14px; font-weight:bold; color: red;">
+      <?php echo $msg; ?>
+          &nbsp;&nbsp;&nbsp;<span><a href="javascript:history.go(-1);">&#9666;返回上一步</a></span>
+      </p>
+        <div class="blank"></div>
+     </div>
+    </div>
+   </div>
+  </div>
+</div>
+<div class="blank"></div>
+<div style="text-align:center"></div>
+
+</body>
+</html>

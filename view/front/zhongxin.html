@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Generator" content="ECSHOP v2.7.2">
+
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<title>用户中心</title>
+
+<link rel="shortcut icon" href="http://www.zhongyis.com/favicon.ico">
+<link rel="icon" href="http://www.zhongyis.com/animated_favicon.gif" type="image/gif">
+<link href="./view/front/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="blockfull">
+    <!--引入头部(header)-->
+    <?php include('header.php'); ?>
+<div class="blank"></div>
+</div>
+
+
+<div class="block clearfix">
+  
+  <div class="AreaL">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox">
+        <div class="userMenu">
+<a href="#" class="curs"><img src="./view/front/images/u1.gif"> 欢迎页</a>
+<a href="#"><img src="./view/front/images/u2.gif"> 用户信息</a>
+<a href="#"><img src="./view/front/images/u3.gif"> 我的订单</a>
+<a href="#"><img src="./view/front/images/u4.gif"> 收货地址</a>
+<a href="#"><img src="./view/front/images/u5.gif"> 我的收藏</a>
+<a href="#"><img src="./view/front/images/u6.gif"> 我的留言</a>
+<a href="#"><img src="./view/front/images/u7.gif"> 我的标签</a>
+<a href="#"><img src="./view/front/images/u8.gif"> 缺货登记</a>
+<a href="#"><img src="./view/front/images/u9.gif"> 我的购物卡</a>
+<a href="#"><img src="./view/front/images/u10.gif"> 我的推荐</a><a href="#"><img src="./view/front/images/u11.gif"> 我的评论</a>
+<!--<a href="#">我的团购</a>-->
+<a href="#"><img src="./view/front/images/u12.gif"> 跟踪包裹</a>
+<a href="#"><img src="./view/front/images/u13.gif"> 资金管理</a>
+<a href="#" style="background:none; text-align:right; margin-right:10px;"><img src="./view/front/images/bnt_sign.gif"></a>
+</div>      </div>
+     </div>
+    </div>
+  </div>
+  
+  
+  <div class="AreaR">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
+         
+                   <font class="f5"><b class="f4"><?php echo $_SESSION['username']; ?></b> 欢迎您回到XX商城！</font><br>
+          <div class="blank"></div>
+          您的上一次登录时间：<?php echo $_SESSION['last_login']; ?><br>
+          <div class="blank5"></div>
+          您的等级是 <?php if($_SESSION['username']=='admin'){echo '管理员';}else{echo '注册会员';} ?>  <br>
+          <div class="blank5"></div>
+                     您还没有通过邮件认证 <a href="#" style="color:#a10000;">点此发送认证邮件</a><br>
+                      <div style="margin:5px 0; border:1px solid #f7dd98;padding:10px 20px; background-color:#fffad5;">
+           <img src="./view/front/images/note.gif" alt="note">&nbsp;注册为会员购物可累计积分，1积分=1元，积分可以用来购物，也可在特定节日兑换礼品！           </div>
+           <br><br>
+          <div class="f_l" style="width:365px;">
+          <h5><span>您的账户</span></h5>
+          <div class="blank"></div>
+          余额：<a href="#" style="color:#a10000;">￥0.00元</a><br>
+                    购物卡：<a href="#" style="color:#a10000;">共计 0 个,价值 ￥0.00元</a><br>
+          积分：<a href="#" style="color:#a10000;"> 0</a><br>
+          </div>
+          <div class="f_r" style="width:365px;">
+          <h5><span>用户提醒</span></h5>
+          <div class="blank"></div>
+          您一共提交了0个订单<br>
+          </div>
+
+        <div class="blank5"></div>
+
+      </div>
+     </div>
+    </div>
+  </div>
+  
+<div class="blank"></div>
+
+    <!--引入尾部(footer)-->
+    <?php include(ROOT.'/view/front/footer.html'); ?>
+</div>
+</body>
+</html>
