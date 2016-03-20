@@ -31,7 +31,7 @@ class mysql extends db{
     }
 
     public function connect($host, $username, $password){
-        $this->conn = mysql_connect($host,$username,$password);
+        $this->conn = mysqli_connect($host,$username,$password);
         if(!$this->conn){
             $err = new Exception('连接数据库失败');
             throw $err;
@@ -52,7 +52,7 @@ class mysql extends db{
         //if($this->conf->debug){
         //    $this->log($sql);
         //}
-        $rsql = mysql_query($sql,$this->conn);
+        $rsql = mysqli_query($this->conn,$sql);
         //if(!$rsql){
         //    $this->log($this->error());
         //}
@@ -94,7 +94,7 @@ class mysql extends db{
         $rsql = $this->query($sql);
         $list = array();
         if($rsql){
-            while($row=mysql_fetch_assoc($rsql)){
+            while($row=mysqli_fetch_assoc($rsql)){
                 $list[] = $row;
             }
         }
@@ -103,23 +103,23 @@ class mysql extends db{
 
     public function getRow($sql){
         $rsql = $this->query($sql);
-        return mysql_fetch_assoc($rsql);
+        return mysqli_fetch_assoc($rsql);
     }
 
     public function getOne($sql){
         $rsql = $this->query($sql);
-        $row = mysql_fetch_row($rsql);
+        $row = mysqli_fetch_row($rsql);
         return $row[0];
     }
 
     //返回影响行数的函数
     public function affected_rows(){
-        return mysql_affected_rows($this->conn);
+        return mysqli_affected_rows($this->conn);
     }
 
     //返回最新的auto_increment列的自增长的值
     public function insert_id(){
-        return mysql_insert_id($this->conn);
+        return mysqli_insert_id($this->conn);
     }
 
 }
