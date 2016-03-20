@@ -2,8 +2,6 @@
 
 Github：https://github.com/maizhenying09/mall
 
-代码：http://pan.baidu.com/s/1mh0TRtQ 密码: t36d
-
 记得先到目录include打开config.inc.php修改数据库配置
 
 然后导入数据库数据
