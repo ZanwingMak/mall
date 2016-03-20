@@ -1,5 +1,5 @@
 演示地址：http://12450.xyz/mall
-
+原文：http://12450.xyz/archives/code/php/2016/03/19/mall.html
 Github：https://github.com/maizhenying09/mall
 
 记得先到目录include打开config.inc.php修改数据库配置
