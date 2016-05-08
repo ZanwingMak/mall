@@ -1,0 +1,7 @@
+﻿请使用notepad++等高级工具来编辑imgs_links不要用记事本！
+
+下载地址：https://notepad-plus-plus.org/download/
+
+当首个字符为';'时，表示无视该行(注释)，如需生效请删除';'
+
+banner图片请放在本目录下,尺寸730x426

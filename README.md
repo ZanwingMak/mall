@@ -4,7 +4,6 @@
 
 Github：https://github.com/maizhenying09/mall
 
-网盘：http://pan.baidu.com/s/1i4wrhI1 密码: ln9v
 
 记得先到目录include打开config.inc.php修改数据库配置
 
@@ -19,6 +18,19 @@ mall.sql 无数据，最好自己重新创建，添加数据。
 进入后台：127.0.0.1/admin
 
 添加商品分类和商品
+
+首页轮播banner：
+
+在banner目录里，请使用notepad++等高级工具来编辑imgs_links.ini，不要用记事本！
+
+下载地址：https://notepad-plus-plus.org/download/
+
+如果没有banner目录和imgs_links.ini，访问首页后会自动生成，请按照例子进行配置。
+
+当首个字符为';'时，表示无视该行(注释)，如需生效请删除';'
+
+banner图片请放在banner目录下,尺寸730x426。
+
 
 注意：
 

@@ -1,10 +1,104 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 <meta content="ECSHOP v2.7.2" name="Generator">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <title>XX商城</title>
 <link href="favicon.ico" rel="shortcut icon">
 <link type="image/gif" href="animated_favicon.gif" rel="icon">
 <link type="text/css" rel="stylesheet" href="./view/front/css/style.css">
+<style>
+.flexslider {
+	margin: 0px auto 0px;
+	position: relative;
+	width: 730px;
+	height: 422px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.flexslider .slides li {
+	width: 100%;
+	height: 100%;
+}
+
+.flex-direction-nav a {
+	width: 70px;
+	height: 70px;
+	line-height: 99em;
+	overflow: hidden;
+	margin: -35px 0 0;
+	display: block;
+	background: url(./view/front/images/ad_ctr.png) no-repeat;
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all .3s ease;
+	border-radius: 35px;
+}
+
+.flex-direction-nav .flex-next {
+	background-position: 0 -70px;
+	right: 5;
+}
+
+.flex-direction-nav .flex-prev {
+	left: 5;
+}
+
+.flexslider:hover .flex-next {
+	opacity: 0.8;
+	filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-prev {
+	opacity: 0.8;
+	filter: alpha(opacity=25);
+}
+
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {
+	opacity: 1;
+	filter: alpha(opacity=50);
+}
+
+.flex-control-nav {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+}
+
+.flex-control-nav li {
+	margin: 0 2px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.flex-control-paging li a {
+	background: url(./view/front/images/dot.png) no-repeat 0 -16px;
+	display: block;
+	height: 16px;
+	overflow: hidden;
+	text-indent: -99em;
+	width: 16px;
+	cursor: pointer;
+}
+
+.flex-control-paging li a.flex-active,
+.flex-control-paging li.active a {
+	background-position: 0 0;
+}
+
+.flexslider .slides a img {
+	width: 730px;
+	height: 426px;
+	display: block;
+}
+</style>
 </head>
 <body>
 <!--引入头部(header)-->
@@ -19,19 +113,36 @@
 <div class="layout_1">
         <div class="layout_left">
         	<div class="lib_adv_1">
-        	<a target="_blank" href="http://12450.xyz"><img width="730" height="422" border="0" src="./view/front/images/4745525aa1a5e29a.jpg"></a>
-            </div>
-            <div class="blank"></div>
-            <div>
-
+				<!--<a target="_blank" href="http://12450.xyz"><img width="730" height="422" border="0" src="./view/front/images/4745525aa1a5e29a.jpg"></a>-->
+				<!-- 轮播广告 -->
+				<div id="banner_tabs" class="flexslider">
+					<ul class="slides">
+						<?php foreach($imgs_links as $img_link){?>
+						<li>
+							<a title="" target="_blank" href="<?php echo $img_link[1]; ?>">
+								<img width="730" height="426" border="0" alt="" style="background: url(./banner/<?php echo $img_link[0];?>)" src="./view/front/images/alpha.png">
+							</a>
+						</li>
+						<?php } ?>
+					</ul>
+					<ul class="flex-direction-nav">
+						<li><a class="flex-prev" href="javascript:;">Previous</a></li>
+						<li><a class="flex-next" href="javascript:;">Next</a></li>
+					</ul>
+					<ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+						<?php for($i=1;$i<=$imgs_links_count;$i++){?>
+						<li><a><?php echo $i; ?></a></li>
+						<?php } ?>
+					</ol>
+				</div>				
             </div>
         </div>
         <div class="layout_right">
-<?php foreach($hotgoodslistthree as $good){ ?>
-    <div class="ad_weizhi"><table cellspacing="0" cellpadding="0">
-    <tbody><tr><td><a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img width="235" height="135" border="0" src="<?php echo $good['ori_img']; ?>"></a></td></tr>
-    </tbody></table></div>
-<?php } ?>
+			<?php foreach($hotgoodslistthree as $good){ ?>
+				<div class="ad_weizhi"><table cellspacing="0" cellpadding="0">
+				<tbody><tr><td><a target="_blank" href="goods.php?goods_id=<?php echo $good['goods_id']; ?>"><img width="235" height="135" border="0" src="<?php echo $good['ori_img']; ?>"></a></td></tr>
+				</tbody></table></div>
+			<?php } ?>
         </div>
     </div>
   
@@ -153,4 +264,25 @@
     <div class="blank"></div>
 <!--引入尾部(footer)-->
 <?php include(ROOT.'/view/front/footer.html'); ?>
+<script src="./view/front/js/jquery-1.10.2.min.js"></script>
+<script src="./view/front/js/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+})
+</script>
 </body></html>
