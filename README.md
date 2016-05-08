@@ -4,14 +4,15 @@
 
 Github：https://github.com/maizhenying09/mall
 
+百度网盘：https://pan.baidu.com/s/1i5Lcm6T 密码: mall
 
 记得先到目录include打开config.inc.php修改数据库配置
 
 然后导入数据库数据
 
-mall_insert.sql 有数据
+mall_with_data.sql 有数据
 
-mall.sql 无数据，最好自己重新创建，添加数据。
+mall_without_data.sql 无数据，最好自己重新创建，添加数据，记得到data目录下把以前的数据删了。
 
 然后到127.0.0.1/register.php注册admin用户名
 
