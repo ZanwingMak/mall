@@ -4,19 +4,17 @@
 
 Github：https://github.com/maizhenying09/mall
 
-百度网盘：https://pan.baidu.com/s/1i5Lcm6T 密码: mall
-
-api使用方法[format不传默认json]:
+例如[format不传默认json]：
 
 单个商品信息[支持xml和json,返回商品的所有信息]：
 
-xxxxx.com/api/goods/info?goods_id=24&format=xml
+xxxx.com/mall/api/goods/info?goods_id=24&format=xml
 
-xxxxx.com/api/goods/info?goods_sn=AUTOSN20160507723873&format=json
+xxxx.com/mall/api/goods/info?goods_sn=AUTOSN20160507723873&format=json
 
 分类下的所有商品[只支持json,返回[goods_id商品ID:goods_name商品名称]]：
 
-xxxxx.com/api/goods/info?cat_id=4&format=json
+xxxx.com/mall/api/goods/info?cat_id=4&format=json
 
 记得先到目录include打开config.inc.php修改数据库配置
 
