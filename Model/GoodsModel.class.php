@@ -165,6 +165,11 @@ class GoodsModel extends Model{
     }
 
 
+    public function findbysn($sn){
+        $sql = 'select * from '.$this->table.' where goods_sn='.'"'.$sn.'"';
+        return $this->db->getRow($sql);
+    }
+
     /*
      * 获取购物车中商品的详细信息
      * parm array $item 购物车中的商品数组
