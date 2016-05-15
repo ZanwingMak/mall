@@ -69,7 +69,7 @@ if( isset($_GET['goods_id']) || isset($_GET['goods_sn']) || isset($_GET['format'
         print_result('json',$data);
     }
 }else{
-    exit("请输入正确的参数!<br>例如[format不传默认json]：<br>单个商品信息[支持xml和json]：<br>api.12450.xyz/goods/info?goods_id=24&format=xml<br>api.12450.xyz/goods/info?goods_sn=AUTOSN20160507723873&format=json<br>分类下的所有商品[只支持json]：<br>api.12450.xyz/goods/info?cat_id=4&format=json");
+    exit("请输入正确的参数!<br>例如[format不传默认json]：<br>单个商品信息[支持xml和json,返回商品的所有信息]：<br>api.12450.xyz/goods/info?goods_id=24&format=xml<br>api.12450.xyz/goods/info?goods_sn=AUTOSN20160507723873&format=json<br>分类下的所有商品[只支持json,返回[goods_id商品ID:goods_name商品名称]]：<br>api.12450.xyz/goods/info?cat_id=4&format=json");
 }
 
 ?>
