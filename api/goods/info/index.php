@@ -40,7 +40,19 @@ if( isset($_GET['goods_id']) || isset($_GET['goods_sn']) || isset($_GET['format'
 
     function print_result($format,$good){
         if($format=='xml'){
-            $xml = simplexml_load_string('<results />');
+            $xml = simplexml_load_string('<!DOCTYPE results [
+                                            <!ENTITY nbsp " ">
+                                            <!ENTITY copy "©">
+                                            <!ENTITY reg "®">
+                                            <!ENTITY trade "™">
+                                            <!ENTITY mdash "—">
+                                            <!ENTITY ldquo "“">
+                                            <!ENTITY rdquo "”">
+                                            <!ENTITY pound "£">
+                                            <!ENTITY yen "¥">
+                                            <!ENTITY euro "€">
+                                            ]>
+                                            <results/>');
             createXML($good, $xml);
             header('Content-type:text/xml');
             echo $xml->saveXML();
