@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 正在导出表  mall.category 的数据：20 rows
-DELETE FROM `category`;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cat_id`, `cat_name`, `intro`, `parent_id`) VALUES
 	(4, '动漫周边', '', 3),
@@ -76,7 +75,6 @@ CREATE TABLE IF NOT EXISTS `goods` (
 ) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 正在导出表  mall.goods 的数据：39 rows
-DELETE FROM `goods`;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
 INSERT INTO `goods` (`goods_id`, `goods_sn`, `cat_id`, `brand_id`, `goods_name`, `weight`, `shop_price`, `market_price`, `goods_number`, `click_count`, `goods_brief`, `goods_desc`, `thumb_img`, `goods_img`, `ori_img`, `is_on_sale`, `is_delete`, `is_best`, `is_new`, `is_hot`, `add_time`, `last_update`, `keywords`) VALUES
 	(1, 'AUTOSN20160311110350', 4, 0, '尚萌特供 礼物 开学福袋 动漫福袋 shamoe傻萌 动漫周边福利', 0.00, 98.00, 198.00, 994, 0.000, '', '<p><img src="/mall/data/upload/image/20160317/TB2.lADdXXXXXbUXpXXXXXXXXXX_!!349072314.jpg" alt="TB2.lADdXXXXXbUXpXXXXXXXXXX_!!349072314.jpg"/></p>', 'data/images/20160311/ori_img/../thumb_img/thumb_4VyoH1fWp30mcAeiL6Mb.jpg', 'data/images/20160311/ori_img/../goods_img/goods_4VyoH1fWp30mcAeiL6Mb.jpg', 'data/images/20160311/ori_img/4VyoH1fWp30mcAeiL6Mb.jpg', 1, 0, 0, 1, 1, 1457633383, 0, ''),
@@ -135,7 +133,6 @@ CREATE TABLE IF NOT EXISTS `ordergoods` (
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 正在导出表  mall.ordergoods 的数据：5 rows
-DELETE FROM `ordergoods`;
 /*!40000 ALTER TABLE `ordergoods` DISABLE KEYS */;
 INSERT INTO `ordergoods` (`og_id`, `order_id`, `order_sn`, `goods_id`, `goods_name`, `goods_buy_num`, `shop_price`, `subtotal`) VALUES
 	(14, 10, 'OI201603181140483176', 19, '包邮原创!舰队collection 岛风动漫等身抱枕套 二次元周边 长枕', 1, 270.00, 270.00),
@@ -165,7 +162,6 @@ CREATE TABLE IF NOT EXISTS `orderinfo` (
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 正在导出表  mall.orderinfo 的数据：1 rows
-DELETE FROM `orderinfo`;
 /*!40000 ALTER TABLE `orderinfo` DISABLE KEYS */;
 INSERT INTO `orderinfo` (`order_id`, `order_sn`, `user_id`, `username`, `receiver`, `address`, `zipcode`, `email`, `tel`, `best_time`, `add_time`, `order_amount`, `payment`) VALUES
 	(10, 'OI2016031811404831769', 1, 'admin', 'DOMEIGANBATTE', '你猜你猜你猜你猜你猜', '233333', 'maizhenying09@gmail.com', '13888888888', '', 1458301248, 1192.00, 3);
@@ -184,7 +180,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- 正在导出表  mall.user 的数据：1 rows
-DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `regtime`, `lastlogin`) VALUES
 	(1, 'admin', 'maizhenying09@gmail.com', '290b2f6eb4f5dad0741132f7159691b0', 1457572928, 1462641061);
