@@ -4,7 +4,9 @@
 
 Github：https://github.com/maizhenying09/mall
 
-例如[format不传默认json]：
+---------------
+
+API使用方法[format不传默认json]：
 
 单个商品信息[支持xml和json,返回商品的所有信息]：
 
@@ -15,6 +17,8 @@ xxxx.com/mall/api/goods/info?goods_sn=AUTOSN20160507723873&format=json
 分类下的所有商品[只支持json,返回[goods_id商品ID:goods_name商品名称]]：
 
 xxxx.com/mall/api/goods/info?cat_id=4&format=json
+
+---------------
 
 记得先到目录include打开config.inc.php修改数据库配置
 
