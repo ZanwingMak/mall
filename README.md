@@ -1,66 +1,66 @@
-ÑİÊ¾µØÖ·£ºhttp://12450.xyz/mall
+æ¼”ç¤ºåœ°å€ï¼šhttp://gfwboom.com/mall
 
-Ô­ÎÄ£ºhttp://12450.xyz/archives/code/php/2016/03/19/mall.html
+åŸæ–‡ï¼šhttp://gfwboom.com/archives/code/php/2016/03/19/mall.html
 
-Github£ºhttps://github.com/maizhenying09/mall
+Githubï¼šhttps://github.com/maizhenying09/mall
 
 ---------------
 
-APIÊ¹ÓÃ·½·¨[format²»´«Ä¬ÈÏjson]£º
+APIä½¿ç”¨æ–¹æ³•[formatä¸ä¼ é»˜è®¤json]ï¼š
 
-µ¥¸öÉÌÆ·ĞÅÏ¢[Ö§³ÖxmlºÍjson,·µ»ØÉÌÆ·µÄËùÓĞĞÅÏ¢]£º
+å•ä¸ªå•†å“ä¿¡æ¯[æ”¯æŒxmlå’Œjson,è¿”å›å•†å“çš„æ‰€æœ‰ä¿¡æ¯]ï¼š
 
 xxxx.com/mall/api/goods/info?goods_id=24&format=xml
 
 xxxx.com/mall/api/goods/info?goods_sn=AUTOSN20160507723873&format=json
 
-·ÖÀàÏÂµÄËùÓĞÉÌÆ·[Ö»Ö§³Öjson,·µ»Ø[goods_idÉÌÆ·ID:goods_nameÉÌÆ·Ãû³Æ]]£º
+åˆ†ç±»ä¸‹çš„æ‰€æœ‰å•†å“[åªæ”¯æŒjson,è¿”å›[goods_idå•†å“ID:goods_nameå•†å“åç§°]]ï¼š
 
 xxxx.com/mall/api/goods/info?cat_id=4&format=json
 
 ---------------
 
-¼ÇµÃÏÈµ½Ä¿Â¼include´ò¿ªconfig.inc.phpĞŞ¸ÄÊı¾İ¿âÅäÖÃ
+è®°å¾—å…ˆåˆ°ç›®å½•includeæ‰“å¼€config.inc.phpä¿®æ”¹æ•°æ®åº“é…ç½®
 
-È»ºóµ¼ÈëÊı¾İ¿âÊı¾İ
+ç„¶åå¯¼å…¥æ•°æ®åº“æ•°æ®
 
-mall_with_data.sql ÓĞÊı¾İ
+mall_with_data.sql æœ‰æ•°æ®
 
-mall_without_data.sql ÎŞÊı¾İ£¬×îºÃ×Ô¼ºÖØĞÂ´´½¨£¬Ìí¼ÓÊı¾İ£¬¼ÇµÃµ½dataÄ¿Â¼ÏÂ°ÑÒÔÇ°µÄÊı¾İÉ¾ÁË¡£
+mall_without_data.sql æ— æ•°æ®ï¼Œæœ€å¥½è‡ªå·±é‡æ–°åˆ›å»ºï¼Œæ·»åŠ æ•°æ®ï¼Œè®°å¾—åˆ°dataç›®å½•ä¸‹æŠŠä»¥å‰çš„æ•°æ®åˆ äº†ã€‚
 
-È»ºóµ½127.0.0.1/register.php×¢²áadminÓÃ»§Ãû
+ç„¶ååˆ°127.0.0.1/register.phpæ³¨å†Œadminç”¨æˆ·å
 
-½øÈëºóÌ¨£º127.0.0.1/admin
+è¿›å…¥åå°ï¼š127.0.0.1/admin
 
-Ìí¼ÓÉÌÆ··ÖÀàºÍÉÌÆ·
+æ·»åŠ å•†å“åˆ†ç±»å’Œå•†å“
 
-Ê×Ò³ÂÖ²¥banner£º
+é¦–é¡µè½®æ’­bannerï¼š
 
-ÔÚbannerÄ¿Â¼Àï£¬ÇëÊ¹ÓÃnotepad++µÈ¸ß¼¶¹¤¾ßÀ´±à¼­imgs_links.ini£¬²»ÒªÓÃ¼ÇÊÂ±¾£¡
+åœ¨bannerç›®å½•é‡Œï¼Œè¯·ä½¿ç”¨notepad++ç­‰é«˜çº§å·¥å…·æ¥ç¼–è¾‘imgs_links.iniï¼Œä¸è¦ç”¨è®°äº‹æœ¬ï¼
 
-ÏÂÔØµØÖ·£ºhttps://notepad-plus-plus.org/download/
+ä¸‹è½½åœ°å€ï¼šhttps://notepad-plus-plus.org/download/
 
-Èç¹ûÃ»ÓĞbannerÄ¿Â¼ºÍimgs_links.ini£¬·ÃÎÊÊ×Ò³ºó»á×Ô¶¯Éú³É£¬Çë°´ÕÕÀı×Ó½øĞĞÅäÖÃ¡£
+å¦‚æœæ²¡æœ‰bannerç›®å½•å’Œimgs_links.iniï¼Œè®¿é—®é¦–é¡µåä¼šè‡ªåŠ¨ç”Ÿæˆï¼Œè¯·æŒ‰ç…§ä¾‹å­è¿›è¡Œé…ç½®ã€‚
 
-µ±Ê×¸ö×Ö·ûÎª';'Ê±£¬±íÊ¾ÎŞÊÓ¸ÃĞĞ(×¢ÊÍ)£¬ÈçĞèÉúĞ§ÇëÉ¾³ı';'
+å½“é¦–ä¸ªå­—ç¬¦ä¸º';'æ—¶ï¼Œè¡¨ç¤ºæ— è§†è¯¥è¡Œ(æ³¨é‡Š)ï¼Œå¦‚éœ€ç”Ÿæ•ˆè¯·åˆ é™¤';'
 
-bannerÍ¼Æ¬Çë·ÅÔÚbannerÄ¿Â¼ÏÂ,³ß´ç730x426¡£
+bannerå›¾ç‰‡è¯·æ”¾åœ¨bannerç›®å½•ä¸‹,å°ºå¯¸730x426ã€‚
 
 
-×¢Òâ£º
+æ³¨æ„ï¼š
 
 ./include/init.php
 
 define('ROOT',str_replace('\','/',dirname(dirname(FILE))).'/');
 
-Â·¾¶ÊÇ£º/·şÎñÆ÷¸ùÄ¿Â¼µ½ÉÌ³Ç¸ùÄ¿Â¼/
+è·¯å¾„æ˜¯ï¼š/æœåŠ¡å™¨æ ¹ç›®å½•åˆ°å•†åŸæ ¹ç›®å½•/
 
 ./include/ueditor_upload_path.php
 
 define('UPLOADROOT',str_replace($SERVER['DOCUMENT_ROOT'],'',str_replace('\','/',dirname (dirname(__FILE_))).'/'));
 
-Â·¾¶ÊÇ£º/ÉÌ³Ç¸ùÄ¿Â¼/
+è·¯å¾„æ˜¯ï¼š/å•†åŸæ ¹ç›®å½•/
 
-Êı¾İ¿âµÄgoods±í goods_descÁĞÊÇÉÌÆ·ËµÃ÷
+æ•°æ®åº“çš„goodsè¡¨ goods_descåˆ—æ˜¯å•†å“è¯´æ˜
 
-Â·¾¶¿ÉÄÜ²»ÊÊºÏÄãµÄ»·¾³ ĞèÒª×Ô¼º¸ÄÒ»ÏÂ£¬ÅúÁ¿Ìæ»»Ò»ÏÂ¾ÍºÃÁË
+è·¯å¾„å¯èƒ½ä¸é€‚åˆä½ çš„ç¯å¢ƒ éœ€è¦è‡ªå·±æ”¹ä¸€ä¸‹ï¼Œæ‰¹é‡æ›¿æ¢ä¸€ä¸‹å°±å¥½äº†
