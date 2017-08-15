@@ -1,4 +1,4 @@
-演示地址：http://gfwboom.com/mall
+演示地址：http://mall.gfwboom.com
 
 原文：http://gfwboom.com/archives/code/php/2016/03/19/mall.html
 
