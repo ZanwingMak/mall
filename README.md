@@ -1,8 +1,8 @@
-演示地址：http://mall.gfwboom.com
+演示地址：http://mall.laji.blog
 
-原文：http://gfwboom.com/archives/code/php/2016/03/19/mall.html
+原文：http://laji.blog/archives/code/php/2016/03/19/mall.html
 
-Github：https://github.com/maizhenying09/mall
+Github：https://github.com/xiaomai0830/mall
 
 ---------------
 
